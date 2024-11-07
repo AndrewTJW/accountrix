@@ -1,0 +1,26 @@
+﻿@layout CardLayout
+
+    <MudPaper Elevation="20" Height="800px" Width="500px" Style="background-color: #2c2c2a; border-radius: 25px; justify-content: center;">
+    <MudCardHeader Style="font-family: 'Roboto', sans-serif; font-weight: 700; font-size: 3em; height: fit-content; color: white; justify-content: center; padding-top: 50px;">
+        Simple & Quick⚡
+    </MudCardHeader>
+    <MudCardContent Style="font-family: 'Roboto', sans-serif; font: 400; font-size: 2em; height: fit-content; color: white; width: 400px; margin-left: 36px; margin-top: 50px;">
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+    </MudCardContent>
+    </MudPaper>
+
+
+
+@code {
+    private class CardInfo
+    {
+        public string Title { get; set; }
+        public string Description { get; set; }
+
+        public CardInfo (string a_title, string a_desc)
+        {
+            Title = a_title;
+            Description = a_desc;
+        }
+    }
+}
