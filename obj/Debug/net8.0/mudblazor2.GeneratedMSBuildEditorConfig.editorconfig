@@ -29,8 +29,8 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User/Desktop/Programming/OOP/Mudblazor2/mudblazor2/Layout/CardLayout.razor]
-build_metadata.AdditionalFiles.TargetPath = TGF5b3V0XENhcmRMYXlvdXQucmF6b3I=
+[C:/Users/User/Desktop/Programming/OOP/Mudblazor2/mudblazor2/Layout/LoginRegisterLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = TGF5b3V0XExvZ2luUmVnaXN0ZXJMYXlvdXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/User/Desktop/Programming/OOP/Mudblazor2/mudblazor2/Layout/MainLayout.razor]
@@ -43,10 +43,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/User/Desktop/Programming/OOP/Mudblazor2/mudblazor2/Layout/NoLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = TGF5b3V0XE5vTGF5b3V0LnJhem9y
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/User/Desktop/Programming/OOP/Mudblazor2/mudblazor2/Pages/CardComponenet.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2FyZENvbXBvbmVuZXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/User/Desktop/Programming/OOP/Mudblazor2/mudblazor2/Pages/Home.razor]

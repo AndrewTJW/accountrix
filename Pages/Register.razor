@@ -1,7 +1,128 @@
 ﻿@page "/register"
 @inject NavigationManager _navigation
-<h3>Register</h3>
-<p>This is the register page</p>
-@code {
+@layout LoginRegisterLayout
 
+@using Homework2Library
+@using DatabaseLogic
+
+
+<div class="register-page">
+    <div class="form-title">
+        <h1>Sign Up</h1>
+    </div>
+    <hr class="rounded-divider" />
+<MudPaper Class="pa-16 ma-2" Elevation="20" Style="height: 50em; width: 50em; background-color: #121212; display: flex; flex-direction: column; align-items: center; justify-content: space-between; border-radius: 25px;">
+    <div class="error-message" style="display: @displaystatus;">
+        <MudAlert Severity="Severity.Error" Variant="Variant.Filled">@ErrorMessage</MudAlert>
+    </div>
+    <div class="input-section">
+    <MudTextField Class="@class_style"  @bind-Value="userDetail.name" Label="First Name" HelperText="@HelperText1.text" Variant="Variant.Text" />
+    </div>
+    <div class="input-section">
+        <MudTextField Class="@class_style" @bind-Value="userDetail.email" Label="Email" HelperText="@HelperText2.text" Variant="Variant.Text" />
+    </div>
+    <div class="input-section">
+        <MudTextField Class="@class_style" @bind-Value="userDetail.password" Label="Password" HelperText="@HelperText3.text" Variant="Variant.Text" InputType="InputType.Password" />
+    </div>
+    <div class="btn-sign-up">
+        <MudButton OnClick="async() => await ProcessInfo()" Variant="Variant.Filled" Style="background-color: #fff200; color: #121212; width: 200px; height: 60px;">
+            Sign up
+        </MudButton>
+    </div>
+    <div class="already-sign-up">
+        <p>Already sign up? <a href="/login">Log in!</a></p>
+    </div>
+ </MudPaper>
+</div>
+
+
+@code {
+    private string displaystatus { get; set; } = "none";
+    private string ErrorMessage { get; set; } = "Testing Error Message";
+    private string class_style { get; set; } = "custom-textfield";
+
+    CustomHelperText HelperText1 = new CustomHelperText("Max 20 character");
+    CustomHelperText HelperText2 = new CustomHelperText("");
+    CustomHelperText HelperText3 = new CustomHelperText("Enter a strong password");
+    CustomHelperText HelperText4 = new CustomHelperText("Confirm password");
+
+    private class CustomHelperText
+    {
+        public string text { get; set; }
+
+        public CustomHelperText(string a_text)
+        {
+            text = a_text;
+        }
+    }
+
+    UserDetail userDetail = new UserDetail();
+    DatabaseAccountrix databaseLogic = new DatabaseAccountrix();
+
+
+
+    private bool ValidateFirstName(string a_first_name)
+    {
+        if (a_first_name.Length <= 20 || a_first_name.Length >= 0)
+        {
+            displaystatus = "none";
+            return true;
+        }
+        displaystatus = "flex";
+        ErrorMessage = "Invalid Input Detected";
+        return false;
+    }
+
+
+    private void NavigateToLandingPage ()
+    {
+        _navigation.NavigateTo("/");
+    }
+
+
+
+    private async Task<bool> ValidateAllInput()
+    {
+        if (userDetail.name.Length >= 20 || userDetail.name.Length == 0)
+        {
+            displaystatus = "flex";
+            ErrorMessage = "Invalid Name!";
+            StateHasChanged();
+            return false;
+        }
+        else if (userDetail.email.Contains("@") == false && userDetail.email.EndsWith(".com") == false && String.IsNullOrEmpty(userDetail.email) == true)
+        {
+            displaystatus = "flex";
+            ErrorMessage = "Invalid Email Format!";
+            StateHasChanged();
+            return false;
+        }
+        else if (string.IsNullOrWhiteSpace(userDetail.password) == true)
+        {
+            displaystatus = "flex";
+            ErrorMessage = "Invalid Password!";
+            StateHasChanged();
+            return false;
+        }
+        else
+        {
+            UserDetail tmp_userDetail = new UserDetail(userDetail.email, userDetail.password, userDetail.name);
+
+            databaseLogic.initDatabase();
+            await databaseLogic.saveUserData(tmp_userDetail);
+            UserDetail tmp_emailchecker = await databaseLogic.retrieveUserEmail(tmp_userDetail.getUserID());
+
+            displaystatus = "none";
+            ErrorMessage = "";
+            return true;
+        }
+    }
+
+    private async Task ProcessInfo()
+    {
+        if (await ValidateAllInput() == true)
+        {
+            NavigateToLandingPage();
+        }
+    }
 }
