@@ -2,9 +2,10 @@
 @inject NavigationManager _navigation
 @layout LoginRegisterLayout
 
-@using Homework2Library
-@using DatabaseLogic
-
+@inject HttpClient HttpHandler
+@inject UserDetail _RegisterLogic
+@inject DatabaseAccountrix _DatabaseLogic
+@using System.Threading.Tasks
 
 <div class="register-page">
     <div class="form-title">
@@ -13,7 +14,15 @@
     <hr class="rounded-divider" />
 <MudPaper Class="pa-16 ma-2" Elevation="20" Style="height: 50em; width: 50em; background-color: #121212; display: flex; flex-direction: column; align-items: center; justify-content: space-between; border-radius: 25px;">
     <div class="error-message" style="display: @displaystatus;">
-        <MudAlert Severity="Severity.Error" Variant="Variant.Filled">@ErrorMessage</MudAlert>
+            @if(registrationstatus == false)
+            {
+                <MudAlert Severity="Severity.Error" Variant="Variant.Filled">@ErrorMessage</MudAlert>
+            }
+            else
+            {
+                <MudAlert Severity="Severity.Success" Variant="Variant.Filled">Account created successfully!</MudAlert>
+            }
+
     </div>
     <div class="input-section">
     <MudTextField Class="@class_style"  @bind-Value="userDetail.name" Label="First Name" HelperText="@HelperText1.text" Variant="Variant.Text" />
@@ -37,6 +46,7 @@
 
 
 @code {
+    private bool registrationstatus { get; set; }
     private string displaystatus { get; set; } = "none";
     private string ErrorMessage { get; set; } = "Testing Error Message";
     private string class_style { get; set; } = "custom-textfield";
@@ -83,45 +93,74 @@
 
     private async Task<bool> ValidateAllInput()
     {
-        if (userDetail.name.Length >= 20 || userDetail.name.Length == 0)
+        try
         {
-            displaystatus = "flex";
-            ErrorMessage = "Invalid Name!";
-            StateHasChanged();
-            return false;
-        }
-        else if (userDetail.email.Contains("@") == false && userDetail.email.EndsWith(".com") == false && String.IsNullOrEmpty(userDetail.email) == true)
-        {
-            displaystatus = "flex";
-            ErrorMessage = "Invalid Email Format!";
-            StateHasChanged();
-            return false;
-        }
-        else if (string.IsNullOrWhiteSpace(userDetail.password) == true)
-        {
-            displaystatus = "flex";
-            ErrorMessage = "Invalid Password!";
-            StateHasChanged();
-            return false;
-        }
-        else
-        {
-            UserDetail tmp_userDetail = new UserDetail(userDetail.email, userDetail.password, userDetail.name);
+            if (userDetail.name.Length >= 20 || userDetail.name.Length == 0)
+            {
+                displaystatus = "flex";
+                ErrorMessage = "Invalid Name!";
+                registrationstatus = false;
+                StateHasChanged();
+                return false;
+            }
+            else if (userDetail.email.Contains("@") == false || userDetail.email.EndsWith(".com") == false || String.IsNullOrEmpty(userDetail.email) == true)
+            {
+                displaystatus = "flex";
+                ErrorMessage = "Invalid Email Format!";
+                registrationstatus = false;
+                StateHasChanged();
+                return false;
+            }
+            else if (string.IsNullOrWhiteSpace(userDetail.password) == true)
+            {
+                displaystatus = "flex";
+                ErrorMessage = "Invalid Password!";
+                registrationstatus = false;
+                StateHasChanged();
+                return false;
+            }
+            else
+            {
+                UserDetail tmp_userDetail = new UserDetail(userDetail.email, userDetail.password, userDetail.name);
+                await HttpHandler.PostAsJsonAsync("/register", tmp_userDetail);
+                UserDetail checkemail_used = await HttpHandler.GetFromJsonAsync<UserDetail>($"/register/{tmp_userDetail.user_ID}");
+                if (checkemail_used.email == tmp_userDetail.email)
+                {
+                    displaystatus = "flex";
+                    ErrorMessage = "Email already exists!";
+                    registrationstatus = false;
+                    await HttpHandler.PostAsJsonAsync($"/register/{tmp_userDetail.user_ID}", tmp_userDetail.user_ID);
+                    StateHasChanged();
+                    return false;
+                }
+                else
+                {
+                    Console.WriteLine("User data saved successfully!");
+                    registrationstatus = true;
+                    displaystatus = "flex";
+                    ErrorMessage = "Account created successfully!";
+                    StateHasChanged();
+                    return true;
+                }
 
-            databaseLogic.initDatabase();
-            await databaseLogic.saveUserData(tmp_userDetail);
-            UserDetail tmp_emailchecker = await databaseLogic.retrieveUserEmail(tmp_userDetail.getUserID());
-
-            displaystatus = "none";
-            ErrorMessage = "";
-            return true;
+            }
         }
+        catch (NullReferenceException ex)
+        {
+            Console.WriteLine("Null field detected");
+            displaystatus = "flex";
+            ErrorMessage = "Fill in the info required";
+            StateHasChanged();
+            return false;
+        }
+
     }
 
     private async Task ProcessInfo()
     {
         if (await ValidateAllInput() == true)
         {
+            await Task.Delay(3500);
             NavigateToLandingPage();
         }
     }
