@@ -123,31 +123,18 @@
             {
                 UserDetail tmp_userDetail = new UserDetail(userDetail.email, userDetail.password, userDetail.name);
                 await HttpHandler.PostAsJsonAsync("/register", tmp_userDetail);
-                UserDetail checkemail_used = await HttpHandler.GetFromJsonAsync<UserDetail>($"/register/{tmp_userDetail.user_ID}");
-                if (checkemail_used.email == tmp_userDetail.email)
-                {
-                    displaystatus = "flex";
-                    ErrorMessage = "Email already exists!";
-                    registrationstatus = false;
-                    await HttpHandler.PostAsJsonAsync($"/register/{tmp_userDetail.user_ID}", tmp_userDetail.user_ID);
-                    StateHasChanged();
-                    return false;
-                }
-                else
-                {
-                    Console.WriteLine("User data saved successfully!");
-                    registrationstatus = true;
-                    displaystatus = "flex";
-                    ErrorMessage = "Account created successfully!";
-                    StateHasChanged();
-                    return true;
-                }
 
+                Console.WriteLine("User data saved successfully!");
+                registrationstatus = true;
+                displaystatus = "flex";
+                ErrorMessage = "Account created successfully!";
+                StateHasChanged();
+                return true;
             }
         }
         catch (NullReferenceException ex)
         {
-            Console.WriteLine("Null field detected");
+            Console.WriteLine("Empty field detected");
             displaystatus = "flex";
             ErrorMessage = "Fill in the info required";
             StateHasChanged();
@@ -160,7 +147,7 @@
     {
         if (await ValidateAllInput() == true)
         {
-            await Task.Delay(3500);
+            await Task.Delay(2500);
             NavigateToLandingPage();
         }
     }

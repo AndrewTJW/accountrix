@@ -16,7 +16,7 @@ namespace mudblazor2
             //builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) }); 
             //added backend API call port
             builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("https://localhost:7012") });
-            builder.Services.AddScoped<Homework2Library.UserDetail>();
+            builder.Services.AddSingleton<Homework2Library.UserDetail>();
             builder.Services.AddSingleton<DatabaseLogic.DatabaseAccountrix>();
             builder.Services.AddMudServices();
             await builder.Build().RunAsync();
