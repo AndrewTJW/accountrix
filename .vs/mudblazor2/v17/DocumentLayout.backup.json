@@ -3,12 +3,44 @@
   "WorkspaceRootPath": "C:\\Users\\User\\Desktop\\Programming\\OOP\\Mudblazor2\\mudblazor2\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{57CA7D0B-DBF1-4C6E-A952-8CB04E51B439}|mudblazor2.csproj|c:\\users\\user\\desktop\\programming\\oop\\mudblazor2\\mudblazor2\\wwwroot\\css\\app.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{57CA7D0B-DBF1-4C6E-A952-8CB04E51B439}|mudblazor2.csproj|solutionrelative:wwwroot\\css\\app.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{57CA7D0B-DBF1-4C6E-A952-8CB04E51B439}|mudblazor2.csproj|c:\\users\\user\\desktop\\programming\\oop\\mudblazor2\\mudblazor2\\layout\\mynavmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{57CA7D0B-DBF1-4C6E-A952-8CB04E51B439}|mudblazor2.csproj|solutionrelative:layout\\mynavmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{57CA7D0B-DBF1-4C6E-A952-8CB04E51B439}|mudblazor2.csproj|c:\\users\\user\\desktop\\programming\\oop\\mudblazor2\\mudblazor2\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{57CA7D0B-DBF1-4C6E-A952-8CB04E51B439}|mudblazor2.csproj|solutionrelative:pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{57CA7D0B-DBF1-4C6E-A952-8CB04E51B439}|mudblazor2.csproj|c:\\users\\user\\desktop\\programming\\oop\\mudblazor2\\mudblazor2\\pages\\landingpage.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{57CA7D0B-DBF1-4C6E-A952-8CB04E51B439}|mudblazor2.csproj|solutionrelative:pages\\landingpage.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{57CA7D0B-DBF1-4C6E-A952-8CB04E51B439}|mudblazor2.csproj|c:\\users\\user\\desktop\\programming\\oop\\mudblazor2\\mudblazor2\\pages\\dashboard.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{57CA7D0B-DBF1-4C6E-A952-8CB04E51B439}|mudblazor2.csproj|solutionrelative:pages\\dashboard.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{57CA7D0B-DBF1-4C6E-A952-8CB04E51B439}|mudblazor2.csproj|c:\\users\\user\\desktop\\programming\\oop\\mudblazor2\\mudblazor2\\pages\\manageassets.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{57CA7D0B-DBF1-4C6E-A952-8CB04E51B439}|mudblazor2.csproj|solutionrelative:pages\\manageassets.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{57CA7D0B-DBF1-4C6E-A952-8CB04E51B439}|mudblazor2.csproj|c:\\users\\user\\desktop\\programming\\oop\\mudblazor2\\mudblazor2\\pages\\managetransactions.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{57CA7D0B-DBF1-4C6E-A952-8CB04E51B439}|mudblazor2.csproj|solutionrelative:pages\\managetransactions.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{57CA7D0B-DBF1-4C6E-A952-8CB04E51B439}|mudblazor2.csproj|c:\\users\\user\\desktop\\programming\\oop\\mudblazor2\\mudblazor2\\layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{57CA7D0B-DBF1-4C6E-A952-8CB04E51B439}|mudblazor2.csproj|solutionrelative:layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{57CA7D0B-DBF1-4C6E-A952-8CB04E51B439}|mudblazor2.csproj|c:\\users\\user\\desktop\\programming\\oop\\mudblazor2\\mudblazor2\\layout\\landingpage.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{57CA7D0B-DBF1-4C6E-A952-8CB04E51B439}|mudblazor2.csproj|solutionrelative:layout\\landingpage.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{57CA7D0B-DBF1-4C6E-A952-8CB04E51B439}|mudblazor2.csproj|c:\\users\\user\\desktop\\programming\\oop\\mudblazor2\\mudblazor2\\layout\\loginregisterlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{57CA7D0B-DBF1-4C6E-A952-8CB04E51B439}|mudblazor2.csproj|solutionrelative:layout\\loginregisterlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{57CA7D0B-DBF1-4C6E-A952-8CB04E51B439}|mudblazor2.csproj|c:\\users\\user\\desktop\\programming\\oop\\mudblazor2\\mudblazor2\\pages\\login.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -19,24 +51,8 @@
       "RelativeMoniker": "D:0:0:{57CA7D0B-DBF1-4C6E-A952-8CB04E51B439}|mudblazor2.csproj|solutionrelative:pages\\register.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{57CA7D0B-DBF1-4C6E-A952-8CB04E51B439}|mudblazor2.csproj|c:\\users\\user\\desktop\\programming\\oop\\mudblazor2\\mudblazor2\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{57CA7D0B-DBF1-4C6E-A952-8CB04E51B439}|mudblazor2.csproj|solutionrelative:pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{57CA7D0B-DBF1-4C6E-A952-8CB04E51B439}|mudblazor2.csproj|c:\\users\\user\\desktop\\programming\\oop\\mudblazor2\\mudblazor2\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{57CA7D0B-DBF1-4C6E-A952-8CB04E51B439}|mudblazor2.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{57CA7D0B-DBF1-4C6E-A952-8CB04E51B439}|mudblazor2.csproj|c:\\users\\user\\desktop\\programming\\oop\\mudblazor2\\mudblazor2\\layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{57CA7D0B-DBF1-4C6E-A952-8CB04E51B439}|mudblazor2.csproj|solutionrelative:layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{57CA7D0B-DBF1-4C6E-A952-8CB04E51B439}|mudblazor2.csproj|c:\\users\\user\\desktop\\programming\\oop\\mudblazor2\\mudblazor2\\layout\\loginregisterlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{57CA7D0B-DBF1-4C6E-A952-8CB04E51B439}|mudblazor2.csproj|solutionrelative:layout\\loginregisterlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{57CA7D0B-DBF1-4C6E-A952-8CB04E51B439}|mudblazor2.csproj|c:\\users\\user\\desktop\\programming\\oop\\mudblazor2\\mudblazor2\\layout\\mynavmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{57CA7D0B-DBF1-4C6E-A952-8CB04E51B439}|mudblazor2.csproj|solutionrelative:layout\\mynavmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{57CA7D0B-DBF1-4C6E-A952-8CB04E51B439}|mudblazor2.csproj|c:\\users\\user\\desktop\\programming\\oop\\mudblazor2\\mudblazor2\\wwwroot\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -74,45 +90,83 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
+              "Title": "ManageAssets.razor",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\Programming\\OOP\\Mudblazor2\\mudblazor2\\Pages\\ManageAssets.razor",
+              "RelativeDocumentMoniker": "Pages\\ManageAssets.razor",
+              "ToolTip": "C:\\Users\\User\\Desktop\\Programming\\OOP\\Mudblazor2\\mudblazor2\\Pages\\ManageAssets.razor",
+              "RelativeToolTip": "Pages\\ManageAssets.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-11T10:57:26.755Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ManageTransactions.razor",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\Programming\\OOP\\Mudblazor2\\mudblazor2\\Pages\\ManageTransactions.razor",
+              "RelativeDocumentMoniker": "Pages\\ManageTransactions.razor",
+              "ToolTip": "C:\\Users\\User\\Desktop\\Programming\\OOP\\Mudblazor2\\mudblazor2\\Pages\\ManageTransactions.razor",
+              "RelativeToolTip": "Pages\\ManageTransactions.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-11T10:56:58.821Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Dashboard.razor",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\Programming\\OOP\\Mudblazor2\\mudblazor2\\Pages\\Dashboard.razor",
+              "RelativeDocumentMoniker": "Pages\\Dashboard.razor",
+              "ToolTip": "C:\\Users\\User\\Desktop\\Programming\\OOP\\Mudblazor2\\mudblazor2\\Pages\\Dashboard.razor",
+              "RelativeToolTip": "Pages\\Dashboard.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-11T10:56:09.585Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
               "Title": "Register.razor",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\Programming\\OOP\\Mudblazor2\\mudblazor2\\Pages\\Register.razor",
               "RelativeDocumentMoniker": "Pages\\Register.razor",
-              "ToolTip": "C:\\Users\\User\\Desktop\\Programming\\OOP\\Mudblazor2\\mudblazor2\\Pages\\Register.razor*",
-              "RelativeToolTip": "Pages\\Register.razor*",
+              "ToolTip": "C:\\Users\\User\\Desktop\\Programming\\OOP\\Mudblazor2\\mudblazor2\\Pages\\Register.razor",
+              "RelativeToolTip": "Pages\\Register.razor",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAJYAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-10T15:20:47.722Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-10T15:20:47.722Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 1,
               "Title": "MyNavMenu.razor",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\Programming\\OOP\\Mudblazor2\\mudblazor2\\Layout\\MyNavMenu.razor",
               "RelativeDocumentMoniker": "Layout\\MyNavMenu.razor",
-              "ToolTip": "C:\\Users\\User\\Desktop\\Programming\\OOP\\Mudblazor2\\mudblazor2\\Layout\\MyNavMenu.razor",
-              "RelativeToolTip": "Layout\\MyNavMenu.razor",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAABAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\User\\Desktop\\Programming\\OOP\\Mudblazor2\\mudblazor2\\Layout\\MyNavMenu.razor*",
+              "RelativeToolTip": "Layout\\MyNavMenu.razor*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-06T04:49:23.208Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Login.razor",
-              "DocumentMoniker": "C:\\Users\\User\\Desktop\\Programming\\OOP\\Mudblazor2\\mudblazor2\\Pages\\Login.razor",
-              "RelativeDocumentMoniker": "Pages\\Login.razor",
-              "ToolTip": "C:\\Users\\User\\Desktop\\Programming\\OOP\\Mudblazor2\\mudblazor2\\Pages\\Login.razor*",
-              "RelativeToolTip": "Pages\\Login.razor*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAQAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-06T05:54:03.984Z",
+              "WhenOpened": "2024-11-06T04:49:23.208Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 10,
+              "Title": "Login.razor",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\Programming\\OOP\\Mudblazor2\\mudblazor2\\Pages\\Login.razor",
+              "RelativeDocumentMoniker": "Pages\\Login.razor",
+              "ToolTip": "C:\\Users\\User\\Desktop\\Programming\\OOP\\Mudblazor2\\mudblazor2\\Pages\\Login.razor",
+              "RelativeToolTip": "Pages\\Login.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-06T05:54:03.984Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
               "Title": "LoginRegisterLayout.razor",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\Programming\\OOP\\Mudblazor2\\mudblazor2\\Layout\\LoginRegisterLayout.razor",
               "RelativeDocumentMoniker": "Layout\\LoginRegisterLayout.razor",
@@ -120,16 +174,17 @@
               "RelativeToolTip": "Layout\\LoginRegisterLayout.razor",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-07T03:06:57.706Z"
+              "WhenOpened": "2024-11-07T03:06:57.706Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "Landingpage.razor",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\Programming\\OOP\\Mudblazor2\\mudblazor2\\Pages\\Landingpage.razor",
               "RelativeDocumentMoniker": "Pages\\Landingpage.razor",
-              "ToolTip": "C:\\Users\\User\\Desktop\\Programming\\OOP\\Mudblazor2\\mudblazor2\\Pages\\Landingpage.razor*",
-              "RelativeToolTip": "Pages\\Landingpage.razor*",
+              "ToolTip": "C:\\Users\\User\\Desktop\\Programming\\OOP\\Mudblazor2\\mudblazor2\\Pages\\Landingpage.razor",
+              "RelativeToolTip": "Pages\\Landingpage.razor",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAATAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-11-06T14:06:10.745Z",
@@ -137,7 +192,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 13,
               "Title": "index.html",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\Programming\\OOP\\Mudblazor2\\mudblazor2\\wwwroot\\index.html",
               "RelativeDocumentMoniker": "wwwroot\\index.html",
@@ -149,7 +204,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 2,
               "Title": "Home.razor",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\Programming\\OOP\\Mudblazor2\\mudblazor2\\Pages\\Home.razor",
               "RelativeDocumentMoniker": "Pages\\Home.razor",
@@ -157,11 +212,12 @@
               "RelativeToolTip": "Pages\\Home.razor",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-06T04:50:26.097Z"
+              "WhenOpened": "2024-11-06T04:50:26.097Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 8,
               "Title": "LandingPage.razor",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\Programming\\OOP\\Mudblazor2\\mudblazor2\\Layout\\LandingPage.razor",
               "RelativeDocumentMoniker": "Layout\\LandingPage.razor",
@@ -174,19 +230,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "MainLayout.razor",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\Programming\\OOP\\Mudblazor2\\mudblazor2\\Layout\\MainLayout.razor",
               "RelativeDocumentMoniker": "Layout\\MainLayout.razor",
               "ToolTip": "C:\\Users\\User\\Desktop\\Programming\\OOP\\Mudblazor2\\mudblazor2\\Layout\\MainLayout.razor",
               "RelativeToolTip": "Layout\\MainLayout.razor",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-06T04:46:45.426Z"
+              "WhenOpened": "2024-11-06T04:46:45.426Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 12,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\Programming\\OOP\\Mudblazor2\\mudblazor2\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
@@ -198,7 +255,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 15,
               "Title": "App.razor",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\Programming\\OOP\\Mudblazor2\\mudblazor2\\App.razor",
               "RelativeDocumentMoniker": "App.razor",
@@ -210,7 +267,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 14,
               "Title": "_Imports.razor",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\Programming\\OOP\\Mudblazor2\\mudblazor2\\_Imports.razor",
               "RelativeDocumentMoniker": "_Imports.razor",
@@ -219,6 +276,25 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-11-06T04:42:46.238Z"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "app.css",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\Programming\\OOP\\Mudblazor2\\mudblazor2\\wwwroot\\css\\app.css",
+              "RelativeDocumentMoniker": "wwwroot\\css\\app.css",
+              "ToolTip": "C:\\Users\\User\\Desktop\\Programming\\OOP\\Mudblazor2\\mudblazor2\\wwwroot\\css\\app.css*",
+              "RelativeToolTip": "wwwroot\\css\\app.css*",
+              "ViewState": "AgIAACgBAAAAAAAAAAAAAD8BAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-11-11T13:03:53.775Z",
+              "EditorCaption": ""
             }
           ]
         }
