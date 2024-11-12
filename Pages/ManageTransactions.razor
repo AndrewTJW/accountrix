@@ -1,9 +1,61 @@
 ﻿@page "/transactions"
 @layout MainLayout
+@inject NavigationManager _navigation
+@inject HttpClient HttpHandler
+@inject UserDetail _RegisterLogic
+@inject DatabaseAccountrix _DatabaseLogic
+@using System.Threading.Tasks
 
+<div class="transaction-page">
+    <div class="add-transactions">
+        <MudPaper Class="pa-8 ma-2" Outlined="true" Style="height: 20em; width: 20em; background-color: #1e1e2d; display: flex; flex-direction: column; align-items: center; justify-content: space-between; border-radius: 25px;">
+            <div>
+                <MudTextField Class="transaction-customtextfield" @bind-Value="_transaction.amount" Label="Amount" Variant="Variant.Text" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.AttachMoney" AdornmentColor="Color.Warning" />
+            </div>
+            <div>
+                <MudRadioGroup @bind-Value="@radiobtn_val">
+                    <MudRadio Class="radio-label" Value="1" Color="Color.Tertiary" Size="Size.Medium">Income</MudRadio>
+                    <MudRadio Class="radio-label" Value="2" Color="Color.Secondary" Size="Size.Medium">Expense</MudRadio>
+                </MudRadioGroup>
+            </div>
+            <div>
+                <MudTextField Class="transaction-customtextfield" @bind-Value="_transaction.TransactionReason" Label="Transaction Reason" Variant="Variant.Text"></MudTextField>
+            </div>
+            <div>
+                <MudButton OnClick="async() => await SaveData()" Variant="Variant.Filled" Size="Size.Large" Color="Color.Tertiary" StartIcon="@Icons.Material.Filled.Save">Add Transaction</MudButton>
+            </div>
+        </MudPaper>
+    </div>
 
-<h3>ManageTransactions</h3>
-This is the manage transaction page
+</div>
 @code {
+    DatabaseAccountrix _databaseLogic = new DatabaseAccountrix();
+    UserTransaction _transaction = new UserTransaction();
 
+    private int radiobtn_val { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+
+    }
+
+    private async Task SaveData()
+    {
+        if (radiobtn_val == 1)
+        {
+            _transaction.amount = _transaction.amount;
+        }
+        else if (radiobtn_val == 2)
+        {
+            _transaction.amount = _transaction.amount * -1;
+        }
+        UserTransaction tmp_transaction = new UserTransaction(_transaction.amount, _transaction.TransactionReason, DateTime.Now);
+        await HttpHandler.PostAsJsonAsync("/transactions", tmp_transaction);
+
+        Console.WriteLine("Transaction saved successfully Transaction ID: {0}", tmp_transaction.transaction_id);
+        _transaction.amount = 0;
+        _transaction.TransactionReason = "";
+        radiobtn_val = 0;
+        StateHasChanged();
+    }
 }

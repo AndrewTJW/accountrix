@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "mudblazor2",
   "resources": {
-    "hash": "sha256-wz+iALKLMWro+QGesPxIgei5A7o/01IzaudCtbLVIX4=",
+    "hash": "sha256-Iqud+TyloUhv2KXmo3/QnN8jqUypfeeUkC42Bn1GZBk=",
     "jsModuleNative": {
       "dotnet.native.8.0.10.bmgnbx4qj4.js": "sha256-QVxMlY7ohmjgde/bZMA0dlWDAeuUP+tEfkiSdg4DFcE="
     },
@@ -233,14 +233,14 @@
       "mscorlib.wasm": "sha256-KvqZaNpjwhrOuzE4b4aMFsI+VUTyiWfoDI4zn4l9BM8=",
       "netstandard.wasm": "sha256-v+s7sWxtOM6bnOvC0jFrtnm6uMfbDymwl2nHNgbS2LM=",
       "System.Private.CoreLib.wasm": "sha256-pklll63uFQoY6vaD3vbluS9osYiJWLLLmob1yHFgepI=",
-      "DatabaseLogic.wasm": "sha256-PKKT9fA+TyFI4GLr/RKGS7qWrkW5nxdPu2pVAQabFXU=",
-      "Homework2Library.wasm": "sha256-NBAWkba/3hnwn/WRPnDGMdnxHacflfNE+Ihow9bm85g=",
-      "mudblazor2.wasm": "sha256-u3vVkZieYv9vS2NyCdb1qQEcKFz/R2YRX06fLyR6NXA="
+      "DatabaseLogic.wasm": "sha256-lRkLqZVRA22AS7+6I81X9+TgdYc0OJNTCnCimwzXAms=",
+      "Homework2Library.wasm": "sha256-BQ4Q52zCcxTwmn1riHqHGaIlTjKi1XJYUFAoMFm74XY=",
+      "mudblazor2.wasm": "sha256-/TGESYXy36tbH+eSEMHCBjYRgfduz340zypm6cvTBfM="
     },
     "pdb": {
-      "DatabaseLogic.pdb": "sha256-nymiprr9pLRqE8jJX+MI2hw6NNCvLE2hQ+W9YQTQPDM=",
-      "Homework2Library.pdb": "sha256-DdJus4vj9Wx5xtkS0zGcWOx58jd0gaKHJJktqq5tgbQ=",
-      "mudblazor2.pdb": "sha256-og/ceyevniJ9nP2yAaXg5GD2GxsqoUXBKN2bdIz9YCs="
+      "DatabaseLogic.pdb": "sha256-OCd6p0xgjvh8wfg4oYgIU252czQHlcwTAy5FMyVH6c4=",
+      "Homework2Library.pdb": "sha256-jYMdi1rujeitxoc/lN5jIZDMw16vvQ8s4pB5NJiuhmU=",
+      "mudblazor2.pdb": "sha256-LaI/z7l1t/W8Ryv8khVCqG7SE2IkqNCcX79wjba/qYU="
     }
   },
   "cacheBootResources": true,
