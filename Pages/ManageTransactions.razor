@@ -1,9 +1,11 @@
 ﻿@page "/transactions"
+
 @layout MainLayout
 @inject NavigationManager _navigation
 @inject HttpClient HttpHandler
 @inject UserDetail _RegisterLogic
 @inject DatabaseAccountrix _DatabaseLogic
+
 @using System.Threading.Tasks
 
 <div class="transaction-page">
@@ -26,16 +28,35 @@
             </div>
         </MudPaper>
     </div>
-
 </div>
 @code {
+    private IQueryable<UserTransaction> datalist = null;
     DatabaseAccountrix _databaseLogic = new DatabaseAccountrix();
     UserTransaction _transaction = new UserTransaction();
+    TransactionList transactions = new TransactionList();
 
     private int radiobtn_val { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
+        await LoadData();
+    }
+
+    private async Task LoadData()
+    {
+        try
+        {
+            List<UserTransaction> ListOfTransactions = await HttpHandler.GetFromJsonAsync<List<UserTransaction>>("/transactions");
+            _databaseLogic.tmp_trans.Transactions = ListOfTransactions;
+            datalist = ListOfTransactions.AsQueryable();
+
+            _databaseLogic.tmp_trans.DisplayTransactionHistory();
+
+        }
+        catch(NullReferenceException)
+        {
+            Console.WriteLine("No transactions");
+        }
 
     }
 

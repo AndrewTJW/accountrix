@@ -6,6 +6,8 @@
 @inject HttpClient HttpHandler
 @inject UserDetail _LoginLogic
 @inject DatabaseAccountrix _DatabaseLogic
+
+@using App_Classes 
 @using System.Threading.Tasks
 
 <div class="register-page">
@@ -14,24 +16,24 @@
     </div>
     <hr class="rounded-divider" />
     <MudPaper Class="pa-16 ma-2" Elevation="20" Style="height: 50em; width: 50em; background-color: #121212; display: flex; flex-direction: column; align-items: center; justify-content: space-between; border-radius: 25px;">
-    <div class="error-message" style="display: @displaystatus;">
-            @if(loginstatus == false)
+    <div class="error-message" style="display: @pageState.displaystatus;">
+            @if(@pageState.validationstatus == false)
             {
-                <MudAlert Severity="Severity.Error" Variant="Variant.Filled">@ErrorMessage</MudAlert>
+                <MudAlert Severity="Severity.Error" Variant="Variant.Filled">@pageState.ErrorMessage</MudAlert>
             }
             else
             {
-                <MudAlert Severity="Severity.Success" Variant="Variant.Filled">Successfully logged in!</MudAlert>
+                <MudAlert Severity="Severity.Success" Variant="Variant.Filled">@pageState.ErrorMessage</MudAlert>
             }
 
     </div>
 
     <div class="input-section">
-        <MudTextField Class="@class_style" @bind-Value="userDetail.email" Label="Email" HelperText="@HelperText1.text" Variant="Variant.Text" />
+        <MudTextField Class="custom-textfield" @bind-Value="userDetail.email" Label="Email" HelperText="@HelperTextEmail.text" Variant="Variant.Text" />
     </div>
 
     <div class="input-section">
-        <MudTextField Class="@class_style" @bind-Value="userDetail.password" Label="Password" HelperText="@HelperText2.text" Variant="Variant.Text" InputType="InputType.Password" />
+        <MudTextField Class="custom-textfield" @bind-Value="userDetail.password" Label="Password" HelperText="@HelperTextPassword.text" Variant="Variant.Text" InputType="InputType.Password" />
     </div>
 
     <div class="btn-sign-up">
@@ -65,13 +67,13 @@
 </div>
 
 @code {
+    PageValidation pageState = new PageValidation(false, "none", "");
     private List<UserDetail> userdatalist = new List<UserDetail>();
     UserDetail userDetail = new UserDetail();
     DatabaseAccountrix databaseLogic = new DatabaseAccountrix();
 
     protected override async Task OnInitializedAsync()
     {
-
         await LoadUserData();
     }
 
@@ -87,34 +89,19 @@
             }
             else
             {
-                displaystatus = "flex";
-                ErrorMessage = "No account was found!";
-                loginstatus = false;
+                pageState.SetFailureUI("No account was found!");
                 StateHasChanged();
             }
         }
-        catch (Exception ex)
+        catch (Exception)
         {
             Console.WriteLine("Not yet create account.");
         }
     }
 
-    private bool loginstatus { get; set; }
-    private string displaystatus { get; set; } = "none";
-    private string ErrorMessage { get; set; } = "Testing Error Message";
-    private string class_style { get; set; } = "custom-textfield";
+    CustomHelperText HelperTextEmail = new CustomHelperText("Enter your registered email");
+    CustomHelperText HelperTextPassword = new CustomHelperText("Enter your password");
 
-    CustomHelperText HelperText1 = new CustomHelperText("Enter you registered email");
-    CustomHelperText HelperText2 = new CustomHelperText("Enter you password");
-    private class CustomHelperText
-    {
-        public string text { get; set; }
-
-        public CustomHelperText(string a_text)
-        {
-            text = a_text;
-        }
-    }
 
     private void NavigateToHome()
     {
@@ -128,23 +115,18 @@
 
     private async Task<bool> ValidateAllInput()
     {
-
         await LoadUserData();
         try
         {
             if (userDetail.email.Contains("@") == false || userDetail.email.EndsWith(".com") == false || String.IsNullOrEmpty(userDetail.email) == true)
             {
-                displaystatus = "flex";
-                ErrorMessage = "Invalid Email Format!";
-                loginstatus = false;
+                pageState.SetFailureUI("Invalid Email Format!");
                 StateHasChanged();
                 return false;
             }
             else if (string.IsNullOrWhiteSpace(userDetail.password) == true)
             {
-                displaystatus = "flex";
-                ErrorMessage = "Invalid Password!";
-                loginstatus = false;
+                pageState.SetFailureUI("Invalid Password!");
                 StateHasChanged();
                 return false;
             }
@@ -152,9 +134,7 @@
             {
                 if (userdatalist.Count == 0)
                 {
-                    displaystatus = "flex";
-                    ErrorMessage = "Account not found!";
-                    loginstatus = false;
+                    pageState.SetFailureUI("Account not found!");
                     StateHasChanged();
                     return false;
                 }
@@ -162,26 +142,20 @@
                 userDetail = new UserDetail(userDetail.email, userDetail.password);
                 if (userDetail.email != correct_userdata.email)
                 {
-                    displaystatus = "flex";
-                    ErrorMessage = "Account not found!";
-                    loginstatus = false;
+                    pageState.SetFailureUI("Account not found!");
                     StateHasChanged();
                     return false;
                 }
                 if (userDetail.email == correct_userdata.email && userDetail.password == correct_userdata.password)
                 {
                     Console.WriteLine("Login successful");
-                    loginstatus = true;
-                    displaystatus = "flex";
-                    ErrorMessage = "Login successful";
+                    pageState.SetSuccessUI("Login successful");
                     StateHasChanged();
                     return true;
                 }
                 else
                 {
-                    displaystatus = "flex";
-                    ErrorMessage = "Invalid email or password!";
-                    loginstatus = false;
+                    pageState.SetFailureUI("Invalid email or password!");
                     StateHasChanged();
                     return false;
                 }
@@ -191,8 +165,7 @@
         {
             Console.WriteLine("{0}", userdatalist.Count());
             Console.WriteLine("Error occurred: " + ex.Message);
-            displaystatus = "flex";
-            ErrorMessage = "Empty Field Detected!";
+            pageState.SetFailureUI("Empty Field Detected!");
             StateHasChanged();
             return false;
         }
