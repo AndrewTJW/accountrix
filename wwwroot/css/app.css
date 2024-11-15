@@ -322,19 +322,10 @@ html {
     display: flex;
     flex-direction: column;
     height: 100vh;
-    width: 100%;
+    width: 100vw;
     background-color: #242640;
     margin: 0px;
 }
-
-    .transaction-page .add-transactions {
-        display: flex;
-        flex-direction: column;
-        height: 60rem;
-        width: 40em;
-        margin-top: 2em;
-        margin-left: 65em;
-    }
 
 .mud-radio > .mud-radio-content {
     color: #7e7e7e !important;

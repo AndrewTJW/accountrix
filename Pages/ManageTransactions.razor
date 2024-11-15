@@ -9,25 +9,48 @@
 @using System.Threading.Tasks
 
 <div class="transaction-page">
-    <div class="add-transactions">
-        <MudPaper Class="pa-8 ma-2" Outlined="true" Style="height: 20em; width: 20em; background-color: #1e1e2d; display: flex; flex-direction: column; align-items: center; justify-content: space-between; border-radius: 25px;">
-            <div>
-                <MudTextField Class="transaction-customtextfield" @bind-Value="_transaction.amount" Label="Amount" Variant="Variant.Text" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.AttachMoney" AdornmentColor="Color.Warning" />
-            </div>
-            <div>
-                <MudRadioGroup @bind-Value="@radiobtn_val">
-                    <MudRadio Class="radio-label" Value="1" Color="Color.Tertiary" Size="Size.Medium">Income</MudRadio>
-                    <MudRadio Class="radio-label" Value="2" Color="Color.Secondary" Size="Size.Medium">Expense</MudRadio>
-                </MudRadioGroup>
-            </div>
-            <div>
-                <MudTextField Class="transaction-customtextfield" @bind-Value="_transaction.TransactionReason" Label="Transaction Reason" Variant="Variant.Text"></MudTextField>
-            </div>
-            <div>
-                <MudButton OnClick="async() => await SaveData()" Variant="Variant.Filled" Size="Size.Large" Color="Color.Tertiary" StartIcon="@Icons.Material.Filled.Save">Add Transaction</MudButton>
-            </div>
-        </MudPaper>
+    <div style="display: flex; flex-direction: row; height: 30em; width: 40em; margin-top: 2em; margin-left: 65em;">
+            <MudPaper Class="pa-8 ma-2" Outlined="true" Style="height: 20em; width: 20em; background-color: #1e1e2d; display: flex; flex-direction: column; align-items: center; justify-content: space-between; border-radius: 25px;">
+                <div>
+                    <MudTextField Class="transaction-customtextfield" @bind-Value="_transaction.amount" Label="Amount" Variant="Variant.Text" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.AttachMoney" AdornmentColor="Color.Warning" />
+                </div>
+                <div>
+                    <MudRadioGroup @bind-Value="@radiobtn_val">
+                        <MudRadio Class="radio-label" Value="1" Color="Color.Tertiary" Size="Size.Medium">Income</MudRadio>
+                        <MudRadio Class="radio-label" Value="2" Color="Color.Secondary" Size="Size.Medium">Expense</MudRadio>
+                    </MudRadioGroup>
+                </div>
+                <div>
+                    <MudTextField Class="transaction-customtextfield" @bind-Value="_transaction.TransactionReason" Label="Transaction Reason" Variant="Variant.Text"></MudTextField>
+                </div>
+                <div>
+                    <MudButton OnClick="async() => await SaveData()" Variant="Variant.Filled" Size="Size.Large" Color="Color.Tertiary" StartIcon="@Icons.Material.Filled.Save">Add Transaction</MudButton>
+                </div>
+            </MudPaper>
+
+            <MudPaper Class="pa-8 ma-2" Outlined="true" Style="height: 20em; width: 20em; background-color: #1e1e2d; display: flex; flex-direction: column; align-items: center; justify-content: space-between; border-radius: 25px">
+                <div>
+                    <MudTextField Class="transaction-customtextfield" @bind-Value="transID_to_del" Label="Enter transaction ID" Variant="Variant.Text"></MudTextField>
+                </div>
+                <div>
+                    <MudButton OnClick="async() => await DeleteData(transID_to_del)" Variant="Variant.Filled" Size="Size.Large" Color="Color.Error" StartIcon="@Icons.Material.Filled.Save">Delete Transaction</MudButton>
+                </div>
+            </MudPaper>
+        </div>
+
+    <div style="width: 80em; margin-left: 40em">
+        <div class="delete-list-transaction">
+            <MudDataGrid Items="@datalist" Filterable="false" SortMode="SortMode.None" Groupable="false">
+                <Columns>
+                    <PropertyColumn Style="font-family:'Roboto';" Property="context => context.amount" Title="Amount" Format="C" />
+                    <PropertyColumn Style="font-family:'Roboto';" Property="context => context.TransactionDate" Title="Date" />
+                    <PropertyColumn Style="font-family:'Roboto';" Property="context => context.TransactionReason" Title="Reason" />
+                    <PropertyColumn Style="font-family:'Roboto';" Property="context => context.transaction_id" Title="Transaction ID" />
+                </Columns>
+            </MudDataGrid>
+        </div>
     </div>
+
 </div>
 @code {
     private IQueryable<UserTransaction> datalist = null;
@@ -36,6 +59,7 @@
     TransactionList transactions = new TransactionList();
 
     private int radiobtn_val { get; set; }
+    private string ?transID_to_del { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
@@ -77,6 +101,24 @@
         _transaction.amount = 0;
         _transaction.TransactionReason = "";
         radiobtn_val = 0;
+        await LoadData();
         StateHasChanged();
     }
+
+        private async Task DeleteData(string transaction_id)
+        {
+            Console.WriteLine("ID contained in button: {0}", transaction_id);
+            var response = await HttpHandler.PostAsJsonAsync($"/transactions/{transaction_id}", transaction_id);
+            if (response.IsSuccessStatusCode)
+            {
+                Console.WriteLine("Transaction has successfully been removed!");
+                transID_to_del = "";
+                await LoadData();
+                StateHasChanged();
+            }
+            else
+            {
+                Console.WriteLine("Failed to delete transaction. Status Code: " + response.StatusCode);
+            }
+        }
 }
