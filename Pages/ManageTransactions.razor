@@ -8,49 +8,44 @@
 
 @using System.Threading.Tasks
 
+@*inline css styling is used because we tried scoped css styling and it doesnt apply, problem might be due to parents class overriding the children component, something to do with Mudblazor*@
+
 <div class="transaction-page">
-    <div style="display: flex; flex-direction: row; height: 30em; width: 40em; margin-top: 2em; margin-left: 65em;">
-            <MudPaper Class="pa-8 ma-2" Outlined="true" Style="height: 20em; width: 20em; background-color: #1e1e2d; display: flex; flex-direction: column; align-items: center; justify-content: space-between; border-radius: 25px;">
-                <div>
-                    <MudTextField Class="transaction-customtextfield" @bind-Value="_transaction.amount" Label="Amount" Variant="Variant.Text" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.AttachMoney" AdornmentColor="Color.Warning" />
-                </div>
-                <div>
-                    <MudRadioGroup @bind-Value="@radiobtn_val">
-                        <MudRadio Class="radio-label" Value="1" Color="Color.Tertiary" Size="Size.Medium">Income</MudRadio>
-                        <MudRadio Class="radio-label" Value="2" Color="Color.Secondary" Size="Size.Medium">Expense</MudRadio>
-                    </MudRadioGroup>
-                </div>
-                <div>
-                    <MudTextField Class="transaction-customtextfield" @bind-Value="_transaction.TransactionReason" Label="Transaction Reason" Variant="Variant.Text"></MudTextField>
-                </div>
-                <div>
-                    <MudButton OnClick="async() => await SaveData()" Variant="Variant.Filled" Size="Size.Large" Color="Color.Tertiary" StartIcon="@Icons.Material.Filled.Save">Add Transaction</MudButton>
-                </div>
-            </MudPaper>
+    <h2 style="color: #ffffff;">Transaction Management</h2>
+    <div style="display: flex; flex-direction: row; gap: 2em; margin-top: 2em;">
+        <MudPaper Class="pa-8" Outlined="true" Style="background-color: #1e1e2d; border-radius: 15px; padding: 1em; width: 20em;">
+            <h3 style="color: #ffffff;">Add Transaction</h3>
+            <MudTextField Class="transaction-customtextfield" @bind-Value="_transaction.amount" Label="Amount" Variant="Variant.Text" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.AttachMoney" AdornmentColor="Color.Warning" />
 
-            <MudPaper Class="pa-8 ma-2" Outlined="true" Style="height: 20em; width: 20em; background-color: #1e1e2d; display: flex; flex-direction: column; align-items: center; justify-content: space-between; border-radius: 25px">
-                <div>
-                    <MudTextField Class="transaction-customtextfield" @bind-Value="transID_to_del" Label="Enter transaction ID" Variant="Variant.Text"></MudTextField>
-                </div>
-                <div>
-                    <MudButton OnClick="async() => await DeleteData(transID_to_del)" Variant="Variant.Filled" Size="Size.Large" Color="Color.Error" StartIcon="@Icons.Material.Filled.Save">Delete Transaction</MudButton>
-                </div>
-            </MudPaper>
-        </div>
+            <MudRadioGroup @bind-Value="@radiobtn_val" Style="margin-top: 1em;">
+                <MudRadio Class="radio-label" Value="1" Color="Color.Tertiary" Size="Size.Medium">Income</MudRadio>
+                <MudRadio Class="radio-label" Value="2" Color="Color.Secondary" Size="Size.Medium">Expense</MudRadio>
+            </MudRadioGroup>
 
-    <div style="width: 80em; margin-left: 40em">
-        <div class="delete-list-transaction">
-            <MudDataGrid Items="@datalist" Filterable="false" SortMode="SortMode.None" Groupable="false">
-                <Columns>
-                    <PropertyColumn Style="font-family:'Roboto';" Property="context => context.amount" Title="Amount" Format="C" />
-                    <PropertyColumn Style="font-family:'Roboto';" Property="context => context.TransactionDate" Title="Date" />
-                    <PropertyColumn Style="font-family:'Roboto';" Property="context => context.TransactionReason" Title="Reason" />
-                    <PropertyColumn Style="font-family:'Roboto';" Property="context => context.transaction_id" Title="Transaction ID" />
-                </Columns>
-            </MudDataGrid>
-        </div>
+            <MudTextField Class="transaction-customtextfield" @bind-Value="_transaction.TransactionReason" Label="Transaction Reason" Variant="Variant.Text" Style="margin-top: 1em;" />
+
+            <MudButton OnClick="async() => await SaveData()" Variant="Variant.Filled" Size="Size.Large" Color="Color.Tertiary" StartIcon="@Icons.Material.Filled.Save" Style="margin-top: 1em;">Add Transaction</MudButton>
+        </MudPaper>
+
+        <MudPaper Class="pa-8" Outlined="true" Style="background-color: #1e1e2d; border-radius: 15px; padding: 1em; width: 20em;">
+            <h3 style="color: #ffffff;">Delete Transaction</h3>
+            <MudTextField Class="transaction-customtextfield" @bind-Value="transID_to_del" Label="Enter transaction ID" Variant="Variant.Text" />
+
+            <MudButton OnClick="async() => await DeleteData(transID_to_del)" Variant="Variant.Filled" Size="Size.Large" Color="Color.Error"
+                       StartIcon="@Icons.Material.Filled.Delete" Style="margin-top: 1em;">Delete Transaction</MudButton>
+        </MudPaper>
     </div>
 
+    <div style="width: 80%; margin-top: 2em;">
+        <MudDataGrid Items="@datalist" Filterable="true" SortMode="SortMode.Multiple" Groupable="true">
+            <Columns>
+                <PropertyColumn Property="context => context.amount" Title="Amount" Format="C" />
+                <PropertyColumn Property="context => context.TransactionDate" Title="Date" />
+                <PropertyColumn Property="context => context.TransactionReason" Title="Reason" />
+                <PropertyColumn Property="context => context.transaction_id" Title="Transaction ID" />
+            </Columns>
+        </MudDataGrid>
+    </div>
 </div>
 @code {
     private IQueryable<UserTransaction> datalist = null;

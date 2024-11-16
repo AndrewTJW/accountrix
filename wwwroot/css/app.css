@@ -325,6 +325,8 @@ html {
     width: 100vw;
     background-color: #242640;
     margin: 0px;
+    padding: 2em;
+    align-items: center;
 }
 
 .mud-radio > .mud-radio-content {
