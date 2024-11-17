@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("mudblazor2")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+343011bb622c67aa3ba95bf1b4a61369c50f8fdd")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d1020455779b20130f4db6921f9cd36807f79fce")]
 [assembly: System.Reflection.AssemblyProductAttribute("mudblazor2")]
 [assembly: System.Reflection.AssemblyTitleAttribute("mudblazor2")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
