@@ -76,14 +76,17 @@
     {
         await LoadUserData();
     }
-
+    //function to fetch data
     private async Task LoadUserData()
     {
         try
         {
+            //save http response into a UserDetail object
             UserDetail tmp_userDetail = await HttpHandler.GetFromJsonAsync<UserDetail>("/login");
+            //if database fetched nothing, means no user account fount, prompt user to register
             if (tmp_userDetail != null)
             {
+                //clear list because if user were to login again, when fetches data, it will store another one in list which is complicated, hence clear list
                 userdatalist.Clear();
                 userdatalist.Add(tmp_userDetail);
             }
@@ -99,13 +102,14 @@
         }
     }
 
+    //default helper text
     CustomHelperText HelperTextEmail = new CustomHelperText("Enter your registered email");
     CustomHelperText HelperTextPassword = new CustomHelperText("Enter your password");
 
 
     private void NavigateToHome()
     {
-        _navigation.NavigateTo("/home");
+        _navigation.NavigateTo("/dashboard");
     }
 
     private void NavigateToLandingPage ()
@@ -138,14 +142,18 @@
                     StateHasChanged();
                     return false;
                 }
+                //fetched userdata stored in correct_userdata for validation
                 UserDetail correct_userdata = userdatalist[0];
+                //userinput stored in  userDetail object
                 userDetail = new UserDetail(userDetail.email, userDetail.password);
+                //compare email
                 if (userDetail.email != correct_userdata.email)
                 {
                     pageState.SetFailureUI("Account not found!");
                     StateHasChanged();
                     return false;
                 }
+                //compare password
                 if (userDetail.email == correct_userdata.email && userDetail.password == correct_userdata.password)
                 {
                     Console.WriteLine("Login successful");
@@ -161,7 +169,8 @@
                 }
             }
         }
-        catch (Exception ex)
+        
+        catch (Exception ex) //to avoid object not created error, minor issue, for tidiness purposes
         {
             Console.WriteLine("{0}", userdatalist.Count());
             Console.WriteLine("Error occurred: " + ex.Message);
@@ -172,8 +181,10 @@
 
     }
 
+    //function to process info 
     private async Task ProcessInfo()
     {
+        //if all account info are correct returns true and lets user access the main app
         if (await ValidateAllInput() == true)
         {
             await Task.Delay(2500);

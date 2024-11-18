@@ -48,8 +48,10 @@
 
 
 @code {
+    //default page styles
     PageValidation pageState = new PageValidation(false, "none", "");
 
+    //default helper text
     CustomHelperText HelperTextName = new CustomHelperText("Max 20 character");
     CustomHelperText HelperTextEmail = new CustomHelperText("");
     CustomHelperText HelperTextPassword = new CustomHelperText("Enter a strong password");
@@ -95,7 +97,7 @@
                 return true;
             }
         }
-        catch (NullReferenceException)
+        catch (NullReferenceException) //needed error catching because if null field it will throw error, hence we catch and handle it ourselves
         {
             Console.WriteLine("Empty field detected");
             pageState.SetFailureUI("Fill in the info required");
@@ -104,9 +106,10 @@
         }
 
     }
-
+    //same thing --> refer login
     private async Task ProcessInfo()
     {
+        //if all account info are correct returns true and lets user access the main app
         if (await ValidateAllInput() == true)
         {
             await Task.Delay(2500);

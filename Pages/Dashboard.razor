@@ -1,33 +1,41 @@
 ﻿@page "/dashboard"
 
 @layout MainLayout
-@inject NavigationManager _navigation
 @inject HttpClient HttpHandler
-@inject UserDetail _RegisterLogic
 @inject DatabaseAccountrix _DatabaseLogic
 @using App_Classes
 @using System.Linq
 
-<div class="transaction-page">
-    <MudPaper Class="pa-4" Style="margin-top: 10em; background-color: #1e1e2d; border-radius: 25px">
-        <MudChart ChartType="ChartType.Donut" Width="500px" Height="500px" InputData="@_dashboard_data.Income_Expense_Data" InputLabels="@_dashboard_data.datalabels"></MudChart>
+<div class="transaction-page" style="display: flex; flex-direction: column; align-items: center; padding: 2em;">
+    <!-- Donut Chart Section -->
+    <MudPaper Class="pa-4" Style="background-color: #1e1e2d; border-radius: 25px; width: 520px;">
+        <MudText Typo="Typo.h6" Style="color: #ffffff; text-align: center; margin-bottom: 1em;">
+            Income vs Expense Overview
+        </MudText>
+        <MudDivider />
+        <MudChart ChartType="ChartType.Donut" Width="500px" Height="500px" InputData="@_dashboard_data.Income_Expense_Data" InputLabels="@_dashboard_data.datalabels" />
     </MudPaper>
 
-    @*please add some display to show user the total revenue and total expense, use mudblazor component so that its nice*@
-    <MudText Typo="Typo.h6">Total Revenue:@_userIncome.total_income</MudText>
-    <MudText Typo="Typo.h6">Total Revenue:@_userExpense.total_expense</MudText>
-    @*please add some display to show user the total revenue and total expense, use mudblazor component so that its nice*@
+    <!-- Total Revenue and Expense Section -->
+    <MudPaper Class="pa-4" Style="background-color: #1e1e2d; border-radius: 25px; width: 520px; text-align: center; margin-top: 15px">
+        <MudText Typo="Typo.h6" Style="color: #ffffff; margin-bottom: 1em;">Summary</MudText>
+        <MudDivider />
+        <MudGrid Style="margin-top: 1em;" Justify="Justify.SpaceBetween" AlignItems="AlignItems.Center">
+            <MudItem xs="6">
+                <MudText Typo="Typo.h6" Style="color: #00d062; font-family: 'Roboto', sans-serif; font-weight: bold;">Total Revenue</MudText>
+                <MudText Typo="Typo.h5" Style="color: #00d062; font-family: 'Roboto', sans-serif; font-weight: bold;">$ @_userIncome.total_income</MudText>
+            </MudItem>
+            <MudItem xs="6">
+                <MudText Typo="Typo.h6" Style="color: #f10c45; font-family: 'Roboto', sans-serif; font-weight: bold;">Total Expense</MudText>
+                <MudText Typo="Typo.h5" Style="color: #f10c45; font-family: 'Roboto', sans-serif; font-weight: bold;">$ @_userExpense.total_expense</MudText>
+            </MudItem>
+        </MudGrid>
+    </MudPaper>
 </div>
-
-<h3>Dashboard</h3>
-This is the dashboard
 @code {
-    private int Index = -1; //default value cannot be 0 -> first selectedindex is 0.
     //IQueryable act as model of data for display or sort
     IQueryable<UserTransaction> datalist = null;
     DatabaseAccountrix _databaseLogic = new DatabaseAccountrix();
-    UserTransaction _transaction = new UserTransaction();
-    TransactionList transactions = new TransactionList();
     TransactionList ListOfIncome = new TransactionList(); //contains all positive amount for total_income calculation
     TransactionList ListOfExpense = new TransactionList();
     DashboardData _dashboard_data = new DashboardData();
@@ -50,17 +58,21 @@ This is the dashboard
             datalist = ListOfTransactions.AsQueryable();
             _databaseLogic.tmp_trans.DisplayTransactionHistory();
             //store all transaction_amount > 0 as income in a IQueryable list for further use.
+            //use system linq functions to find the transaction amount > 0 == income and store in list
             IQueryable<UserTransaction> QueryableListOfPositiveTransaction = datalist.Where(transaction => transaction.amount > 0);
             ListOfIncome.Transactions = QueryableListOfPositiveTransaction.ToList();
+            //compute total income
             _userIncome.total_income = ListOfIncome.getTotalRevenue();
             Console.WriteLine(_userIncome.total_income);
+            //use system linq functions to find the transaction amount <= 0 == expense and store in list
             IQueryable<UserTransaction> QueryableListOfNegativeTransction = datalist.Where(transactions => transactions.amount < 0);
             ListOfExpense.Transactions = QueryableListOfNegativeTransction.ToList();
+            //compute total expense
             _userExpense.total_expense = ListOfExpense.getTotalExpense();
             Console.WriteLine(_userExpense.total_expense);
 
             //add computed data into array for display
-            _dashboard_data.Income_Expense_Data = new double[] 
+            _dashboard_data.Income_Expense_Data = new [] 
             { _userIncome.total_income, 
               _userExpense.total_expense 
             };
@@ -71,8 +83,4 @@ This is the dashboard
             Console.WriteLine("No transactions");
         }
     }
-
-
-
-    //take all amount > 0 (positive) to compute total income
 }

@@ -60,7 +60,7 @@
                     <MudCardHeader Style="font-family: 'Roboto', sans-serif; font-weight: 700; font-size: 3em; height: fit-content; color: white; justify-content: center; padding-top: 50px;">
                         @context.Title
                     </MudCardHeader>
-                    <MudCardContent Style="font-family: 'Roboto', sans-serif; font: 400; font-size: 2em; height: fit-content; color: white; width: 400px; margin-left: 50px; margin-right: 50px; margin-top: 50px;">
+                    <MudCardContent Style="font-family: 'Roboto', sans-serif; font-weight: 400; font-size: 2em; height: fit-content; color: white; width: 400px; margin-left: 50px; margin-right: 50px; margin-top: 50px;">
                         @context.Description
                     </MudCardContent>
                 </MudPaper>
@@ -99,6 +99,7 @@
     private bool _enableSwipeGesture = true;
     private bool _autocycle = true;
 
+    //created the class here since i lazy create another folder, and its used in landing page only
     public class CardInfo
     {
         public string Title { get; set; }
@@ -111,8 +112,10 @@
         }
     }
 
+    //for carousell, feed the UI data
     public List<CardInfo> cards = new List<CardInfo>
     {
+        //created multiple objects called CardInfo stored in list
         new CardInfo("Simple & Quick⚡", "Small program without complex process that will slow down your device. Devices can run the app effortlessly"),
         new CardInfo("User-Friendly 😀", "Setting up your account only takes a few click. Easy to navigate without overwhelming complex interfaces"),
         new CardInfo("Key Features ⚙️", "Accoutrix enable users to track their assets & liabilities. Users are also able to track their transaction, so that they never lose track."),

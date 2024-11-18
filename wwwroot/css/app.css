@@ -338,9 +338,17 @@ html {
     font-family: 'Roboto', sans-serif !important;
 }
 
+/*this css doesnt work the one below, go find out why*/
 .transaction-customtextfield .mud-input-label {
     color: #7e7e7e !important;
     font-family: 'Roboto', sans-serif !important;
 }
+
+.mud-typography-body2 {
+    color: #7e7e7e !important;
+    font-family: 'Roboto', sans-serif !important;
+    font-weight: bold !important;
+}
+
 
 
