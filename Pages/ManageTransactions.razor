@@ -64,6 +64,7 @@
     {
         try
         {
+            //followed teacher's code
             List<UserTransaction> ListOfTransactions = await HttpHandler.GetFromJsonAsync<List<UserTransaction>>("/transactions");
             _databaseLogic.tmp_trans.Transactions = ListOfTransactions;
             datalist = ListOfTransactions.AsQueryable();
@@ -88,7 +89,9 @@
         {
             _transaction.amount = _transaction.amount * -1;
         }
+        //set new trasaction data
         UserTransaction tmp_transaction = new UserTransaction(_transaction.amount, _transaction.TransactionReason, DateTime.Now);
+        //save trasaction data
         await HttpHandler.PostAsJsonAsync("/transactions", tmp_transaction);
 
         Console.WriteLine("Transaction saved successfully Transaction ID: {0}", tmp_transaction.transaction_id);
@@ -102,17 +105,10 @@
         private async Task DeleteData(string transaction_id)
         {
             Console.WriteLine("ID contained in button: {0}", transaction_id);
-            var response = await HttpHandler.PostAsJsonAsync($"/transactions/{transaction_id}", transaction_id);
-            if (response.IsSuccessStatusCode)
-            {
-                Console.WriteLine("Transaction has successfully been removed!");
-                transID_to_del = "";
-                await LoadData();
-                StateHasChanged();
-            }
-            else
-            {
-                Console.WriteLine("Failed to delete transaction. Status Code: " + response.StatusCode);
-            }
+            await HttpHandler.PostAsJsonAsync($"/transactions/{transaction_id}", transaction_id);
+            Console.WriteLine("Transaction has successfully been removed!");
+            transID_to_del = "";
+            await LoadData();
+            StateHasChanged();
         }
 }

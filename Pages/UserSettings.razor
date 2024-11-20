@@ -66,7 +66,9 @@
     {
         try
         {
+            //store fetched user detail into variable
             fetched_UserDetail = await HttpHandler.GetFromJsonAsync<UserDetail>("/usersettings");
+            //specifically get the fetched user detail props userID into a variable
             fetched_user_ID = fetched_UserDetail.user_ID;
 
         }
@@ -97,20 +99,16 @@
             }
             else
             {
-                var deleteResponse = await HttpHandler.PostAsJsonAsync($"/usersettings/{fetched_user_ID}", fetched_user_ID);
-                if (!deleteResponse.IsSuccessStatusCode)
-                {
-                    Console.WriteLine("Failed to delete user data. Status Code: " + deleteResponse.StatusCode);
-                }
-                else
-                {
-                    UserDetail newUserDetail = new UserDetail(tmp_UserDetail.email, tmp_UserDetail.password, tmp_UserDetail.name);
-                    await HttpHandler.PostAsJsonAsync("/usersettings", newUserDetail);
-                    pageState.SetSuccessUI("Update Successful!");
-                    StateHasChanged();
-                    await Task.Delay(2500);
-                    NavigateToLandingPage();
-                }
+                //delete data with the fetched user_ID (old user ID)
+                await HttpHandler.PostAsJsonAsync($"/usersettings/{fetched_user_ID}", fetched_user_ID);
+                //set new user data
+                UserDetail newUserDetail = new UserDetail(tmp_UserDetail.email, tmp_UserDetail.password, tmp_UserDetail.name);
+                //save new user data
+                await HttpHandler.PostAsJsonAsync("/usersettings", newUserDetail);
+                pageState.SetSuccessUI("Update Successful!");
+                StateHasChanged();
+                await Task.Delay(2500);
+                NavigateToLandingPage();
             }
         }
         catch (Exception ex)

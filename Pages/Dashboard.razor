@@ -58,8 +58,9 @@
             datalist = ListOfTransactions.AsQueryable();
             _databaseLogic.tmp_trans.DisplayTransactionHistory();
             //store all transaction_amount > 0 as income in a IQueryable list for further use.
-            //use system linq functions to find the transaction amount > 0 == income and store in list
-            IQueryable<UserTransaction> QueryableListOfPositiveTransaction = datalist.Where(transaction => transaction.amount > 0);
+            //use system linq functions to find the transaction amount > 0 == income and store in list //a delegate called predicate, it tests every element in the IQueryable list to see which satisfies the condition mentioned 
+            IQueryable<UserTransaction> QueryableListOfPositiveTransaction = datalist.Where(transaction => transaction.amount > 0); //if the element in the IQueryable list satisfies the condition, element will be returned
+            //implicit conversion
             ListOfIncome.Transactions = QueryableListOfPositiveTransaction.ToList();
             //compute total income
             _userIncome.total_income = ListOfIncome.getTotalRevenue();

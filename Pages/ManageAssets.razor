@@ -63,6 +63,7 @@
     {
         try
         {
+            //same as TransactionManagement
             List<Item> ListOfItems = await HttpHandler.GetFromJsonAsync<List<Item>>("/assets");
             _databaseLogic.tmp_items.items = ListOfItems;
             itemlist = ListOfItems.AsQueryable();
@@ -93,16 +94,10 @@
     private async Task DeleteItem(string item_id)
     {
         Console.WriteLine("ID contained in button: {0}", item_id);
-        var response = await HttpHandler.PostAsJsonAsync($"/assets/{item_id}", item_id);
-        if (response.IsSuccessStatusCode)
-        {
-            Console.WriteLine("Item has successfully been removed!");
-            await LoadItem();
-            StateHasChanged();
-        }
-        else
-        {
-            Console.WriteLine("Failed to delete item. Status Code: " + response.StatusCode);
-        }
+        await HttpHandler.PostAsJsonAsync($"/assets/{item_id}", item_id);
+        Console.WriteLine("Item has successfully been removed!");
+        itemID_to_del = "";
+        await LoadItem();
+        StateHasChanged();
     }
 }
